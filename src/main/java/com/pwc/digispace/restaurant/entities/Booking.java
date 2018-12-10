@@ -1,9 +1,14 @@
 package com.pwc.digispace.restaurant.entities;
 
-public class Booking {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Booking implements Serializable {
 	
 	private int id;
 	private int tablenumber;
+	private List <Product> productList = new ArrayList<Product>();
 	
 	public Booking() {
 		
@@ -34,6 +39,15 @@ public class Booking {
 
 	public void setTablenumber(int tablenumber) {
 		this.tablenumber = tablenumber;
+	}
+	
+	
+	public List<Product> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Product> productList) {
+		this.productList = productList;
 	}
 
 	@Override
