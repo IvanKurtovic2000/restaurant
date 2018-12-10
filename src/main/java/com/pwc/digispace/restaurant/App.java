@@ -1,5 +1,6 @@
 package com.pwc.digispace.restaurant;
 
+import java.util.Calendar;
 
 import com.pwc.digispace.restaurant.dao.ProductDAO;
 import com.pwc.digispace.restaurant.entities.Product;
@@ -8,23 +9,35 @@ import com.pwc.digispace.restaurant.entities.Product;
  * Hello world!
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+	public static void main(String[] args) {
 
-    	ProductDAO product = new ProductDAO();
-    	
-    	Product hamburger = new Product();
-    	hamburger.setId(11);
-    	hamburger.setName("Hamburger");
-    	hamburger.setDescription("Saftiger Hamburger mit Pommes");
-    	hamburger.setPrice(14L);
-    	hamburger.setCategory("Fastfood");
-    	hamburger.setCreationdate(null);
-    	
-    	product.createProduct(hamburger);
-    	
-    	
-    }
+		// create a java timestamp object that represents the current time (i.e., a
+		// "current timestamp")
+		Calendar calendar = Calendar.getInstance();
+		java.sql.Timestamp ourJavaTimestampObject = new java.sql.Timestamp(calendar.getTime().getTime());
+
+		ProductDAO product = new ProductDAO();
+		Product hamburger = new Product(9, "Hamburger", "Saftiger Hamburger mit Pommes", 15L, "Fastfood",
+				ourJavaTimestampObject);
+		
+		Product pommes = new Product(7, "Pommes", "leckere Pommes", 5L, "Fastfood",
+				ourJavaTimestampObject);
+
+		// Create a Product in the Database
+		product.createProduct(hamburger);
+
+		// Delete a Product in the Database with the help of the ID
+		product.deleteProduct(9);
+		
+		// Finds all Products in the Database 
+		product.findAllProducts();
+		
+		// Update a Product by ID 
+		product.updateProduct(pommes);
+		
+		// Finds all Products in the Database 
+	    product.findAllProducts();
+
+	}
 }

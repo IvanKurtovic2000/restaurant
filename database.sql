@@ -22,19 +22,14 @@ CREATE TABLE BOOKING (
 
 /* Insert dummy data into product*/
 INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, PRICE, CATEGORY, CREATIONDATE)
-VALUES (1, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 18, 'Classik', CURRENT_TIMESTAMP);
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, PRICE, CATEGORY, CREATIONDATE)
-VALUES (2, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 18, 'Classik', CURRENT_TIMESTAMP);
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, PRICE, CATEGORY, CREATIONDATE)
-VALUES (3, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 18, 'Classik', CURRENT_TIMESTAMP);
-INSERT INTO PRODUCT (ID, NAME, DESCRIPTION, PRICE, CATEGORY, CREATIONDATE)
-VALUES (4, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 18, 'Classik', CURRENT_TIMESTAMP);
+VALUES (1, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 10, 'Classik', CURRENT_TIMESTAMP),
+ 	   (2, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 10, 'Classik', CURRENT_TIMESTAMP),
+       (3, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 10, 'Classik', CURRENT_TIMESTAMP),
+       (4, 'Schnitzel', 'Schnitzel mit Beilagen aus der Region', 10, 'Classik', CURRENT_TIMESTAMP);
 
 
 /* Insert dummy data into product*/
 INSERT INTO BOOKING (id, tablenumber)
-VALUES (1, 1);
-INSERT INTO BOOKING (id, tablenumber)
-VALUES (2, 2);
-INSERT INTO BOOKING (id, tablenumber)
-VALUES (3, 3);
+VALUES (1, 1),
+ 	   (2, 2),
+       (3, 3);
