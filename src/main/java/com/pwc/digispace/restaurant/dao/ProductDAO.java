@@ -151,5 +151,37 @@ public class ProductDAO {
 
 		}
 	}
+	
+	// Finds  Products in the H2 Database by Id
+		public void findProductById(int id) {
+			try {
+				String queryString = "SELECT * FROM PRODUCT WHERE ID=" + id;
+				connection = getConnection();
+				ptmt = connection.prepareStatement(queryString);
+				resultSet = ptmt.executeQuery();
+				
+				while (resultSet.next()) {
+					System.out.println("ID " + resultSet.getInt("ID") + ", Name " + resultSet.getString("Name")
+							+ ", DESCRIPTION " + resultSet.getString("DESCRIPTION") + ", PRICE " + resultSet.getLong("PRICE")
+							+ ", CATEGORY " + resultSet.getString("CATEGORY") + ", CREATIONDATE " + resultSet.getTimestamp("CREATIONDATE"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null)
+						resultSet.close();
+					if (ptmt != null)
+						ptmt.close();
+					if (connection != null)
+						connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+		}
 
 }

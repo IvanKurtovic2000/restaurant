@@ -38,6 +38,9 @@ public class App {
 		
 		// Finds all Products in the Database 
 	    product.findAllProducts();
+	    
+	 // Finds a Product in the Database by ID
+	    product.findProductById(2);
 
 	}
 }
